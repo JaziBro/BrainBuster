@@ -1,135 +1,100 @@
+"use client"
+
+import Link from "next/link";
 import Image from "next/image";
-import cricket from "../../public/cricket.jpg"
-import hero from "../../public/hero-img.jpeg"
+import hero_img from "../../public/hero-img.jpeg"
+import quiz_card from "../../public/quiz.jpg"
 
 export default function Home() {
   return (
-    <>
-      {/* Header n Nav Bar */}
-      <div className="min-h-screen bg-white flex flex-col items-center">
-        <header className="w-full flex justify-between p-6">
-          <div className="text-purple-600 font-bold text-xl">[Logo]</div>
-          <nav className="space-x-8">           
-            <a href="#" className="text-gray-600">Home</a>
-            <a href="#" className="text-gray-600">Solutions</a>
-            <a href="#" className="text-gray-600">Customers</a>
-            <a href="#" className="text-gray-600">Developers</a>
-            <a href="#" className="text-gray-600">Pricing</a>
-            <a href="#" className="text-gray-600">Blog</a>
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <header className="bg-white shadow-md py-4">
+        <div className="container mx-auto flex justify-between items-center px-4">
+          <div className="text-2xl font-bold">QuizMaster</div>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><Link href="#home" className="hover:text-purple-600">Home</Link></li>
+              <li><Link href="#quizzes" className="hover:text-purple-600">Quizzes</Link></li>
+              <li><Link href="#about" className="hover:text-purple-600">About</Link></li>
+              <li><Link href="#contact" className="hover:text-purple-600">Contact</Link></li>
+            </ul>
           </nav>
-          <div className="space-x-4">
-            <button className="text-purple-600">Log in</button>
-            <button className="bg-purple-600 text-white px-4 py-2 rounded">Talk to an Expert</button>
+          <div>
+            <Link href="/login" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Login</Link>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* hero section */}
-        <main className="flex flex-col items-center justify-center flex-1 px-6 ">
-          <div className="text-center md:text-left max-w-lg mb-10">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Take a quiz, or–<br/>Plan a quiz.</h1>
-            <p className="text-gray-600 text-lg">Deliver instruction that's relevant for every student — now with a boost from AI.</p>
+      {/* Hero Section */}
+      <section className=" py-12">
+        <div className="container mx-auto flex flex-col md:flex-row items-center px-4">
+          <div className="md:w-1/2">
+            <h1 className="text-4xl font-bold mb-4">Take a quiz, or Plan a quiz.</h1>
+            <p className="text-lg mb-6">Challenge yourself or others with fun and educational quizzes!</p>
+            <Link href="#quizzes" className="bg-purple-600 text-white px-3 py-3 rounded hover:bg-purple-700">Get Started</Link>
           </div>
-          <div className="hidden md:block ml-10">
-            <Image src={hero} alt="AI Quiz Illustration" className="max-w-xs" />
+          <div className="md:w-1/2">
+            <Image src={hero_img} alt="Quiz Illustration" className="w-full h-auto"/>
           </div>
+        </div>
+      </section>
 
-          <section className="flex justify-center space-x-8 mt-10">
-          {/* Card 1 */}
-          <div className="bg-white shadow-md rounded-lg overflow-hidden max-w-xs ">
-            <Image src={cricket} alt="Fundamentals Quiz" className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h2 className="text-xl font-bold mb-2 text-black">Fundamentals Quiz</h2>
-              <p className="text-gray-600">
-                Ideal for beginners, this quiz focuses on foundational knowledge. It’s designed to be approachable yet engaging, perfect for younger learners or those new to the topic.
-              </p>
+      {/* Quiz Cards Section */}
+      <section id="quizzes" className="py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Popular Quizzes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <Image src={quiz_card} alt="Quiz 1" className="w-full h-40 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Science is Fun</h3>
+                  <p className="text-gray-700">Unlock the mysteries of the universe! Dive into the wonders of science with questions that make learning fun and exciting.</p>
+                  <Link href="/quizzes/science" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">Start Quiz</Link>
+                </div>
+              </div>
+
+            {/* Card 2 */}
+              <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <Image src={quiz_card} alt="Quiz 2" className="w-full h-40 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Historical History</h3>
+                  <p className="text-gray-700">Travel back in time and test your knowledge of the past! Explore pivotal events and legendary figures in this captivating history quiz.</p>
+                  <Link href="/quizzes/history" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">Start Quiz</Link>
+                </div>
+              </div>
+
+            {/* Card 3 */}
+              <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <Image src={quiz_card} alt="Quiz 3" className="w-full h-40 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Game On</h3>
+                  <p className="text-gray-700">Get ready to test your sports savvy! From epic matches to legendary athletes, this quiz has it all—let's see if you've got game!</p>
+                  <Link href="/quizzes/sports" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">Start Quiz</Link>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className=" text-black py-6 mt-auto">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between">
+            <div>
+              <h4 className="text-lg font-bold mb-2">QuizMaster</h4>
+              <p className="text-gray-400">© 2024 QuizMaster. All rights reserved.</p>
+            </div>
+            <div className="flex space-x-4">
+              <Link href="#home" className="hover:text-gray-300">Home</Link>
+              <Link href="#quizzes" className="hover:text-gray-300">Quizzes</Link>
+              <Link href="#about" className="hover:text-gray-300">About</Link>
+              <Link href="#contact" className="hover:text-gray-300">Contact</Link>
             </div>
           </div>
-
-          {/* Card 2 */}
-          <div className="bg-white shadow-md rounded-lg overflow-hidden max-w-xs">
-            <Image src={cricket} alt="Intermediate Challenge" className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h2 className="text-xl font-bold mb-2 text-black">Intermediate Challenge</h2>
-              <p className="text-gray-600">
-                This quiz offers a balanced mix of questions, suitable for those with some prior knowledge. It’s an excellent way to test and expand your understanding in a structured manner.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white shadow-md rounded-lg overflow-hidden max-w-xs">
-            <Image src={cricket} alt="Mastery Test" className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h2 className="text-xl font-bold mb-2 text-black">Mastery Test</h2>
-              <p className="text-gray-600">
-                Designed for those who seek a rigorous challenge, this quiz features complex questions that require a deep understanding of the subject. Ideal for advanced learners and experts.
-              </p>
-            </div>
-          </div>
-        </section>
-        </main>
-
-        {/* footer */}
-        <footer className="w-full bg-gray-50 py-10 mt-10 shadow-2xl border-purple-600 border-t-4">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="flex flex-wrap justify-between">
-              <div className="w-full sm:w-1/6 mb-6 sm:mb-0">
-                <div className="text-gray-700 font-bold mb-4">Company</div>
-                <ul>
-                  <li><a href="#" className="text-gray-600">Blog</a></li>
-                  <li><a href="#" className="text-gray-600">Careers</a></li>
-                  <li><a href="#" className="text-gray-600">Pricing</a></li>
-                  <li><a href="#" className="text-gray-600">Customers</a></li>
-                  <li><a href="#" className="text-gray-600">Contact Us</a></li>
-                </ul>
-              </div>
-              <div className="w-full sm:w-1/6 mb-6 sm:mb-0">
-                <div className="text-gray-700 font-bold mb-4">Payments</div>
-                <ul>
-                  <li><a href="#" className="text-gray-600">PCI Compliance</a></li>
-                  <li><a href="#" className="text-gray-600">Payments Optimization</a></li>
-                  <li><a href="#" className="text-gray-600">Card Issuing</a></li>
-                  <li><a href="#" className="text-gray-600">Network Tokens</a></li>
-                  <li><a href="#" className="text-gray-600">Card Insights</a></li>
-                  <li><a href="#" className="text-gray-600">Key Management</a></li>
-                </ul>
-              </div>
-              <div className="w-full sm:w-1/6 mb-6 sm:mb-0">
-                <div className="text-gray-700 font-bold mb-4">By Data Type</div>
-                <ul>
-                  <li><a href="#" className="text-gray-600">Card Data</a></li>
-                  <li><a href="#" className="text-gray-600">Banking Data</a></li>
-                  <li><a href="#" className="text-gray-600">PII</a></li>
-                  <li><a href="#" className="text-gray-600">HIPAA & ePHI</a></li>
-                  <li><a href="#" className="text-gray-600">API Credentials</a></li>
-                  <li><a href="#" className="text-gray-600">File Encryption</a></li>
-                </ul>
-              </div>
-              <div className="w-full sm:w-1/6 mb-6 sm:mb-0">
-                <div className="text-gray-700 font-bold mb-4">Primitives</div>
-                <ul>
-                  <li><a href="#" className="text-gray-600">Relay</a></li>
-                  <li><a href="#" className="text-gray-600">Functions</a></li>
-                  <li><a href="#" className="text-gray-600">UI Components</a></li>
-                  <li><a href="#" className="text-gray-600">Enclaves</a></li>
-                </ul>
-              </div>
-              <div className="w-full sm:w-1/6 mb-6 sm:mb-0">
-                <div className="text-gray-700 font-bold mb-4">Legal & Compliance</div>
-                <ul>
-                  <li><a href="#" className="text-gray-600">Terms of Service</a></li>
-                  <li><a href="#" className="text-gray-600">Privacy Policy</a></li>
-                  <li><a href="#" className="text-gray-600">Cookies Policy</a></li>
-                  <li><a href="#" className="text-gray-600">Data Processing</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="text-center text-gray-600 mt-10">
-              © 2024 Name Inc. All rights reserved.
-            </div>
-          </div>
-        </footer>
-      </div>
-    </>
+        </div>
+      </footer>
+    </div>
   );
 }
