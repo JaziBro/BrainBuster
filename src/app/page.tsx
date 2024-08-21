@@ -31,7 +31,8 @@ export default function Home() {
             </Link>
             <Link href="/contact" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-xl">
               Contact
-            </Link>          </nav>
+            </Link>
+          </nav>
         </div>
       </header>
 
@@ -59,11 +60,13 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8 dark:text-white">Popular Quizzes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-              <Image src={science_quiz} alt="Quiz 1" className="w-full object-cover" />
-              <div className="p-4">
+            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden flex flex-col">
+              <div className="relative h-48 w-full">
+                <Image src={science_quiz} alt="Quiz 1" layout="fill" objectFit="cover" />
+              </div>
+              <div className="p-4 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2 dark:text-white">Science is Fun</h3>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 flex-grow">
                   Unlock the mysteries of the universe! Dive into the wonders of science with questions that make
                   learning fun and exciting.
                 </p>
@@ -74,11 +77,13 @@ export default function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-              <Image src={history_quiz} alt="Quiz 2" className="w-full object-cover" />
-              <div className="p-4">
+            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden flex flex-col">
+              <div className="relative h-48 w-full">
+                <Image src={history_quiz} alt="Quiz 2" layout="fill" objectFit="cover" />
+              </div>
+              <div className="p-4 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2 dark:text-white">Historical History</h3>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 flex-grow">
                   Travel back in time and test your knowledge of the past! Explore pivotal events and legendary
                   figures in this captivating history quiz.
                 </p>
@@ -89,13 +94,15 @@ export default function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-              <Image src={sports_quiz} alt="Quiz 3" className="w-full object-cover" />
-              <div className="p-4">
+            <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden flex flex-col">
+              <div className="relative h-48 w-full">
+                <Image src={sports_quiz} alt="Quiz 3" layout="fill" objectFit="cover" />
+              </div>
+              <div className="p-4 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2 dark:text-white">Game On</h3>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 flex-grow">
                   Get ready to test your sports savvy! From epic matches to legendary athletes, this quiz has it
-                  all—let&#39;s see if you&#39;ve got game!
+                  all—let's see if you've got game!
                 </p>
                 <Link href="/quizzes/sports" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">
                   Start Quiz
