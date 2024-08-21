@@ -102,7 +102,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-2 dark:text-white">Game On</h3>
                 <p className="text-gray-700 dark:text-gray-300 flex-grow">
                   Get ready to test your sports savvy! From epic matches to legendary athletes, this quiz has it
-                  all—let's see if you've got game!
+                  all—let&#39;s see if you&#39;ve got game!
                 </p>
                 <Link href="/quizzes/sports" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">
                   Start Quiz
