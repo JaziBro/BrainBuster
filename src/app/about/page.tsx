@@ -28,7 +28,7 @@ export default function AboutPage() {
           Our platform offers a wide range of quizzes on various topics, from science to sports, designed to challenge your knowledge and keep you engaged.
         </p>
         <p className="text-lg text-gray-700 mb-4">
-          Whether you're here to brush up on your trivia skills, prepare for a test, or simply have fun, we have something for everyone. So dive in, explore our quizzes, and enjoy the journey of learning!
+          Whether you are here to brush up on your trivia skills, prepare for a test, or simply have fun, we have something for everyone. So dive in, explore our quizzes, and enjoy the journey of learning!
         </p>
         <p className="text-lg text-gray-700 mb-4">
           Thank you for being a part of our community. <span className="text-purple-600 font-bold">Happy quizzing! </span>

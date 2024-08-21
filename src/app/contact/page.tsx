@@ -35,7 +35,7 @@ export default function ContactPage() {
       <main className="container mx-auto p-6 text-center">
         <h1 className="text-4xl font-bold mb-6">Contact Us 📲</h1>
         <p className="text-lg text-gray-700 mb-6">
-          Have a question, suggestion, or just want to say hello? We'd love to hear from you!
+          Have a question, suggestion, or just want to say hello? We would love to hear from you!
         </p>
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
           <div className="mb-4">

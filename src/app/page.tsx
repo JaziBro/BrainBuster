@@ -68,7 +68,7 @@ export default function Home() {
                 <Image src={sports_quiz} alt="Quiz 3" className="w-full object-cover" />
                 <div className="p-4">
                   <h3 className="text-xl font-bold mb-2">Game On</h3>
-                  <p className="text-gray-700">Get ready to test your sports savvy! From epic matches to legendary athletes, this quiz has it all—let's see if you've got game!</p>
+                  <p className="text-gray-700">Get ready to test your sports savvy! From epic matches to legendary athletes, this quiz has it all—let&#39;s see if you&#39;ve got game!</p>
                   <Link href="/quizzes/sports" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-6 inline-block">Start Quiz</Link>
                 </div>
               </div>
