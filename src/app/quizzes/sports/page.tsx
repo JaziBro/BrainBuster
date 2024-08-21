@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 export default function QuizPage() {
   // cricket questions data
@@ -79,9 +81,12 @@ export default function QuizPage() {
     }
   }, [time]);
 
+  // Calculate percentage for the circular progress bar
+  const percentage = (time / (10 * 60)) * 100;
+
   // Handle answer selection
   const handleOptionClick = (index: number) => {
-    if (selectedOption !== null || quizCompleted) return; // Prevent multiple selections
+    if (selectedOption !== null || quizCompleted) return;
 
     setSelectedOption(index);
     if (index === questions[currentQuestionIndex].correctOption) {
@@ -95,7 +100,7 @@ export default function QuizPage() {
       } else {
         setQuizCompleted(true);
       }
-    }, 1000); // Delay to show feedback color
+    }, 1000);
   };
 
   return (
@@ -107,39 +112,51 @@ export default function QuizPage() {
               <h2 className="text-2xl font-semibold">
                 Q. {questions[currentQuestionIndex].text}
               </h2>
-              <div className="bg-gray-200 p-3 rounded-full text-purple-600 font-semibold">
-                {Math.floor(time / 60)}:{time % 60 < 10 ? "0" : ""}
-                {time % 60}
+              <div className="w-20 h-16">
+                <CircularProgressbar
+                  value={percentage}
+                  text={`${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`}
+                  styles={buildStyles({
+                    textColor: "#6B46C1", // Tailwind purple-600 color
+                    pathColor: "#6B46C1",
+                    trailColor: "#E2E8F0", // Tailwind gray-200 color
+                    textSize: "27px",
+                  })}
+                />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {questions[currentQuestionIndex].options.map(
-                (option, index) => (
-                  <div
-                    key={index}
-                    onClick={() => handleOptionClick(index)}
-                    className={`bg-white shadow-md p-4 rounded-lg cursor-pointer ${
-                      selectedOption === index
-                        ? index ===
-                          questions[currentQuestionIndex].correctOption
-                          ? "bg-green-200"
-                          : "bg-red-200"
-                        : "hover:bg-purple-100"
-                    }`}
-                  >
-                    <p className="text-gray-700 font-medium">
-                      {String.fromCharCode(65 + index)}) {option}
-                    </p>
-                  </div>
-                )
-              )}
+              {questions[currentQuestionIndex].options.map((option, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleOptionClick(index)}
+                  className={`bg-white shadow-md p-4 rounded-lg cursor-pointer ${
+                    selectedOption === index
+                      ? index === questions[currentQuestionIndex].correctOption
+                        ? "bg-green-400"
+                        : "bg-red-400"
+                      : "hover:bg-purple-300"
+                  }`}
+                >
+                  <p className="text-gray-700 font-medium">
+                    {String.fromCharCode(65 + index)}) {option}
+                  </p>
+                </div>
+              ))}
             </div>
           </>
         ) : (
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-6">Quiz Completed!</h2>
-            <p className="text-xl">Your Score: {score} / {questions.length}</p>
-            <Link href="/" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-4 inline-block">Return back </Link>         
+            <p className="text-xl">
+              Your Score: {score} / {questions.length}
+            </p>
+            <Link
+              href="/"
+              className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-4 inline-block"
+            >
+              Return back
+            </Link>
           </div>
         )}
       </main>
