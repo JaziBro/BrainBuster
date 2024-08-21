@@ -6,7 +6,6 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function QuizPage() {
-  // cricket questions data
   const questions = [
     {
       text: "Who is known as the 'King of Football'?",
@@ -71,7 +70,6 @@ export default function QuizPage() {
   const [time, setTime] = useState(10 * 60); // 10 minutes timer
   const [quizCompleted, setQuizCompleted] = useState(false);
 
-  // Timer countdown
   useEffect(() => {
     if (time > 0) {
       const timer = setTimeout(() => setTime(time - 1), 1000);
@@ -81,10 +79,8 @@ export default function QuizPage() {
     }
   }, [time]);
 
-  // Calculate percentage for the circular progress bar
   const percentage = (time / (10 * 60)) * 100;
 
-  // Handle answer selection
   const handleOptionClick = (index: number) => {
     if (selectedOption !== null || quizCompleted) return;
 
@@ -104,7 +100,7 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <main className="container mx-auto p-6">
         {!quizCompleted ? (
           <>
@@ -130,15 +126,15 @@ export default function QuizPage() {
                 <div
                   key={index}
                   onClick={() => handleOptionClick(index)}
-                  className={`bg-white shadow-md p-4 rounded-lg cursor-pointer ${
+                  className={`bg-white dark:bg-gray-800 shadow-md p-4 rounded-lg cursor-pointer ${
                     selectedOption === index
                       ? index === questions[currentQuestionIndex].correctOption
-                        ? "bg-green-400"
-                        : "bg-red-400"
-                      : "hover:bg-purple-300"
+                        ? "bg-green-400 dark:bg-green-600"
+                        : "bg-red-400 dark:bg-red-600"
+                      : "hover:bg-purple-300 dark:hover:bg-purple-500"
                   }`}
                 >
-                  <p className="text-gray-700 font-medium">
+                  <p className="text-gray-700 dark:text-gray-200 font-medium">
                     {String.fromCharCode(65 + index)}) {option}
                   </p>
                 </div>
