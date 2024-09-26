@@ -11,7 +11,6 @@ import NavBar from "./components/NavBar";
 export default function Home() {
   return (
   <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    <NavBar/>
     {/* Hero Section */}
     <section className="py-12">
       <div className="container mx-auto flex flex-col md:flex-row items-center px-4">

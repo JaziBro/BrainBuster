@@ -1,9 +1,8 @@
-"use client";
-
+import NavBar from "../components/NavBar";
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <main className="container mx-auto p-6 text-center mt-16">
         <h1 className="text-4xl font-bold mb-6">About Us</h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
